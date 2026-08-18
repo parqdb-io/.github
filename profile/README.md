@@ -7,24 +7,32 @@
   </a>
 </div>
 
-> ParqDB is a billion-scale embedded vector database built entirely on Parquet and Arrow.
+> ParqDB 是一个把数据和索引都放进 Parquet 的嵌入式向量数据库。
 
-### Why ParqDB
+向量索引不该是只有一套服务读得懂的黑盒。ParqDB 直接用 Parquet 存索引：
+能做版本管理，能独立发布，也能在不同引擎之间共享。
 
-- **Billion-scale search in bounded memory.** Search larger-than-memory vector datasets on modest hardware.
-- **Everything is Parquet.** Source data and vector indexes use an open, portable storage format that can be versioned, published, and shared.
-- **SQL-native vector search.** Combine similarity search with filters, joins, projections, and aggregations in one relational plan.
-- **Serving and analytics.** Parallelize across queries for throughput or within a query for low-latency analytical and large-k search.
-- **One index, multiple engines.** Build locally and use the same Parquet index across embedded and distributed execution environments.
+- **小机器也能搜大数据**：用 2 个 CPU 核心、4 GB 内存搜索 10 亿向量，召回率 90.3%，中位延迟 63.05 ms
+- **数据和索引都是 Parquet**：不用导入专有格式，也不用把整份索引塞进内存
+- **向量搜索就是 SQL**：过滤、连接、聚合和 Top-K 在同一个执行计划中完成
+- **一份索引，到处可用**：本地构建的索引，可以交给嵌入式或分布式计算引擎直接查询
+- **既能在线服务，也能分析**：可以跨查询并行追求吞吐，也可以在单次查询内并行降低延迟
 
-### Get started
+## ParqDB 是什么？
+
+- 一个装进 Python 进程就能运行的向量数据库
+- 一套开放、可移植的 Parquet 向量索引格式
+- 一条从单机有限内存搜索走向集群计算的平滑路径
+
+## 立即开始
 
 ```bash
 python -m pip install parqdb
 ```
 
-Explore the [ParqDB repository](https://github.com/parqdb-io/parqdb), follow the
-[getting-started guide](https://github.com/parqdb-io/parqdb/blob/main/docs/getting-started.md),
-or read the [open index specification](https://github.com/parqdb-io/parqdb/tree/main/spec).
+继续阅读：[项目主页](https://github.com/parqdb-io/parqdb) ·
+[快速入门](https://github.com/parqdb-io/parqdb/blob/main/docs/getting-started.md) ·
+[索引格式](https://github.com/parqdb-io/parqdb/tree/main/spec) ·
+[English README](https://github.com/parqdb-io/parqdb/blob/main/README.md)
 
-ParqDB is open source under the [MIT and Apache-2.0 licenses](https://github.com/parqdb-io/parqdb/blob/main/LICENSE).
+ParqDB 采用 [MIT 与 Apache-2.0 双许可证](https://github.com/parqdb-io/parqdb/blob/main/LICENSE)开源。
