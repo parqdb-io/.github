@@ -7,32 +7,32 @@
   </a>
 </div>
 
-> ParqDB 是一个把数据和索引都放进 Parquet 的嵌入式向量数据库。
+> ParqDB is an embedded vector database that stores both data and indexes in Parquet.
 
-向量索引不该是只有一套服务读得懂的黑盒。ParqDB 直接用 Parquet 存索引：
-能做版本管理，能独立发布，也能在不同引擎之间共享。
+Vector indexes should not be opaque files understood by only one service.
+ParqDB makes indexes portable: version them, publish them, and query them from
+different engines without changing formats.
 
-- **小机器也能搜大数据**：用 2 个 CPU 核心、4 GB 内存搜索 10 亿向量，召回率 90.3%，中位延迟 63.05 ms
-- **数据和索引都是 Parquet**：不用导入专有格式，也不用把整份索引塞进内存
-- **向量搜索就是 SQL**：过滤、连接、聚合和 Top-K 在同一个执行计划中完成
-- **一份索引，到处可用**：本地构建的索引，可以交给嵌入式或分布式计算引擎直接查询
-- **既能在线服务，也能分析**：可以跨查询并行追求吞吐，也可以在单次查询内并行降低延迟
+- **Billion-scale search on modest hardware:** 1B vectors, 90.3% recall, and 63.05 ms median latency with 2 CPU cores and 4 GB of memory
+- **Parquet all the way down:** no proprietary import format and no requirement to keep the full index in memory
+- **Vector search is SQL:** filters, joins, aggregations, and Top-K stay in one execution plan
+- **Build once, query anywhere:** use the same index from embedded and distributed compute engines
+- **Serving and analytics:** parallelize across queries for throughput or within one query for low latency
 
-## ParqDB 是什么？
+## What is ParqDB?
 
-- 一个装进 Python 进程就能运行的向量数据库
-- 一套开放、可移植的 Parquet 向量索引格式
-- 一条从单机有限内存搜索走向集群计算的平滑路径
+- A vector database that runs inside your Python process
+- An open, portable vector-index format built on Parquet
+- A path from bounded-memory search on one machine to cluster-scale execution
 
-## 立即开始
+## Quick start
 
 ```bash
 python -m pip install parqdb
 ```
 
-继续阅读：[项目主页](https://github.com/parqdb-io/parqdb) ·
-[快速入门](https://github.com/parqdb-io/parqdb/blob/main/docs/getting-started.md) ·
-[索引格式](https://github.com/parqdb-io/parqdb/tree/main/spec) ·
-[English README](https://github.com/parqdb-io/parqdb/blob/main/README.md)
+Continue with the [project repository](https://github.com/parqdb-io/parqdb),
+[getting-started guide](https://github.com/parqdb-io/parqdb/blob/main/docs/getting-started.md),
+or [open index specification](https://github.com/parqdb-io/parqdb/tree/main/spec).
 
-ParqDB 采用 [MIT 与 Apache-2.0 双许可证](https://github.com/parqdb-io/parqdb/blob/main/LICENSE)开源。
+ParqDB is open source under the [MIT and Apache-2.0 licenses](https://github.com/parqdb-io/parqdb/blob/main/LICENSE).
