@@ -7,23 +7,16 @@
   </a>
 </div>
 
-> ParqDB is an embedded vector database that stores both data and indexes in Parquet.
+> Billion-scale embedded vector database built entirely on Parquet and Arrow.
 
-Vector indexes should not be opaque files understood by only one service.
-ParqDB makes indexes portable: version them, publish them, and query them from
-different engines without changing formats.
+ParqDB is an embedded vector database for larger-than-memory search and analytics
+on billion-scale multimodal data, with Parquet storage and Arrow-native execution.
 
-- **Billion-scale search on modest hardware:** 1B vectors, 90.3% recall, and 63.05 ms median latency with 2 CPU cores and 4 GB of memory
-- **Parquet all the way down:** no proprietary import format and no requirement to keep the full index in memory
-- **Vector search is SQL:** filters, joins, aggregations, and Top-K stay in one execution plan
-- **Build once, query anywhere:** use the same index from embedded and distributed compute engines
-- **Serving and analytics:** parallelize across queries for throughput or within one query for low latency
-
-## What is ParqDB?
-
-- A vector database that runs inside your Python process
-- An open, portable vector-index format built on Parquet
-- A path from bounded-memory search on one machine to cluster-scale execution
+- **Billion-scale search in bounded memory.** Search 1B vectors at 90.3% recall with 63.05 ms median latency using just 2 CPU cores and 4 GB of memory.
+- **Everything is Parquet.** Source data and vector indexes use standard Parquet rather than proprietary binary formats.
+- **Multimodal data, SQL-native search.** Combine vector search with filters, joins, and aggregations in one execution plan.
+- **Built for serving and analytics.** Parallelize across queries for throughput, or within one query for low-latency analytical and large-k search.
+- **Scale from one core to thousands.** Run embedded on one machine, then use the same Parquet index with Spark or StarRocks at cluster scale.
 
 ## Quick start
 
