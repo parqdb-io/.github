@@ -1,6 +1,9 @@
 <div align="center">
   <a href="https://github.com/parqdb-io/parqdb">
-    <img src="https://raw.githubusercontent.com/parqdb-io/parqdb/main/assets/parqdb-header.svg" alt="ParqDB" width="760">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/parqdb-io/parqdb/docs/vision-centents/assets/parqdb/logo-dark.svg">
+      <img src="https://raw.githubusercontent.com/parqdb-io/parqdb/docs/vision-centents/assets/parqdb/logo.svg" alt="ParqDB" width="520">
+    </picture>
   </a>
 </div>
 
